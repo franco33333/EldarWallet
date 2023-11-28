@@ -62,7 +62,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_app"
+                    android:paddingVertical="@dimen/margin_app"
+                    android:paddingStart="@dimen/margin_app"
                     android:background="@color/gray">
 
                     <TextView
@@ -74,6 +75,7 @@
                         android:text="@string/associated_cards"/>
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_app"
@@ -83,6 +85,61 @@
                         tools:itemCount="3"
                         tools:listitem="@layout/item_card"/>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color_primary"
+                        app:layout_constraintTop_toBottomOf="@id/rvCards"
+                        app:cornerRadius="@dimen/margin_app"
+                        android:layout_marginEnd="@dimen/margin_app"
+                        android:layout_marginTop="@dimen/margin_app"
+                        android:text="@string/add_card"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_app"
+                app:layout_constraintTop_toBottomOf="@id/cvCards">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_app"
+                    android:background="@color/gray">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGenerateQR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color_primary"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:cornerRadius="@dimen/margin_app"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/generate_qr"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPayQR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color_primary"
+                        app:layout_constraintTop_toBottomOf="@id/btnGenerateQR"
+                        app:cornerRadius="@dimen/margin_app"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/pay_with_qr"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPayCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color_primary"
+                        app:layout_constraintTop_toBottomOf="@id/btnPayQR"
+                        app:cornerRadius="@dimen/margin_app"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/pay_with_card"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

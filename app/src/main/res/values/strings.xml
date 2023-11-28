@@ -10,4 +10,8 @@
     <string name="balance">Saldo</string>
     <string name="associated_cards">Tarjetas asociadas</string>
     <string name="expires">Vence</string>
+    <string name="add_card">Agregar tarjeta</string>
+    <string name="generate_qr">Generar QR</string>
+    <string name="pay_with_qr">Pagar con QR</string>
+    <string name="pay_with_card">Pagar con tarjeta</string>
 </resources>
