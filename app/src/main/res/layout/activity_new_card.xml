@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_app"
+    tools:context=".ui.main.NewCardActivity">
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="@dimen/margin_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_app"
+            android:background="@color/color_primary"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/card_number"
+                android:textColor="@color/edit_text_title"
+                android:textSize="12sp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+            <EditText
+                android:id="@+id/etCardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                style="@style/StyleButtonApp"
+                android:backgroundTint="@color/edit_text"
+                android:hint="@string/card_number"
+                android:textColorHint="@color/gray"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:textSize="16sp"
+                android:inputType="number"
+                android:maxLength="16"
+                android:layout_marginTop="4dp"/>
+
+            <ImageView
+                android:id="@+id/ivCardLogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:src="@drawable/mastercard_logo"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_app"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/card_name"
+                android:textColor="@color/edit_text_title"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/margin_app"
+                android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+            <EditText
+                android:id="@+id/etCardName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                style="@style/StyleButtonApp"
+                android:backgroundTint="@color/edit_text"
+                android:hint="@string/card_name"
+                android:textColorHint="@color/gray"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:textSize="16sp"
+                android:inputType="textPersonName"
+                android:maxLength="16"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/expiration_date"
+                android:textColor="@color/edit_text_title"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/margin_app"
+                android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+            <EditText
+                android:id="@+id/etExpirationDate"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                style="@style/StyleButtonApp"
+                android:backgroundTint="@color/edit_text"
+                android:hint="@string/expiration_date_format"
+                android:textColorHint="@color/gray"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:textSize="16sp"
+                android:inputType="number"
+                android:maxLength="16"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/security_code"
+                android:textColor="@color/edit_text_title"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/margin_app"
+                android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+            <EditText
+                android:id="@+id/etSecurityCode"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                style="@style/StyleButtonApp"
+                android:backgroundTint="@color/edit_text"
+                android:hint="@string/security_code"
+                android:textColorHint="@color/gray"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:textSize="16sp"
+                android:inputType="number"
+                android:maxLength="4"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/card_document"
+                android:textColor="@color/edit_text_title"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/margin_app"
+                android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+            <EditText
+                android:id="@+id/etCardDocument"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                style="@style/StyleButtonApp"
+                android:backgroundTint="@color/edit_text"
+                android:hint="@string/card_document"
+                android:textColorHint="@color/gray"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:textSize="16sp"
+                android:inputType="number"
+                android:maxLength="4"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cornerRadius="@dimen/margin_app"
+        android:layout_marginTop="6dp"
+        android:text="@string/add_card"/>
+
+</LinearLayout>
