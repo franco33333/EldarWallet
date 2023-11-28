@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_app">16dp</dimen>
+
+    <dimen name="radius_button">10dp</dimen>
+
+    <dimen name="text_size_micro_small">12dp</dimen>
+    <dimen name="text_size_small">14dp</dimen>
+    <dimen name="text_size_normal">16dp</dimen>
+    <dimen name="text_size_semi_big">18dp</dimen>
+    <dimen name="text_size_big">20dp</dimen>
+    <dimen name="text_size_big_title">20dp</dimen>
+    <dimen name="text_size_super_big">25dp</dimen>
+    <dimen name="text_size_toolbar">25dp</dimen>
+    <dimen name="text_size_header_start">25dp</dimen>
+    <dimen name="padding_horizontal_small">12dp</dimen>
+    <dimen name="padding_vertical_small">10dp</dimen>
+    <dimen name="padding_horizontal_medium">12dp</dimen>
+    <dimen name="padding_horizontal_big">16dp</dimen>
+
+    <dimen name="height_small_button">40dp</dimen>
+    <dimen name="height_button">48dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

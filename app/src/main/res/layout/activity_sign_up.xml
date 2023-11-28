@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/margin_app"
+    tools:context=".ui.start.SignUpActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="@color/edit_text_title"
+        android:textSize="12sp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/StyleButtonApp"
+        android:backgroundTint="@color/edit_text"
+        android:hint="@string/name"
+        android:textColorHint="@color/gray"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:textSize="16sp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/surname"
+        android:textColor="@color/edit_text_title"
+        android:textSize="12sp"
+        android:layout_marginTop="@dimen/margin_app"
+        android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+    <EditText
+        android:id="@+id/etSurname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/StyleButtonApp"
+        android:backgroundTint="@color/edit_text"
+        android:hint="@string/surname"
+        android:textColorHint="@color/gray"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:textSize="16sp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textColor="@color/edit_text_title"
+        android:textSize="12sp"
+        android:layout_marginTop="@dimen/margin_app"
+        android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        app:passwordToggleTint="@color/white"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            style="@style/StyleButtonApp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/dark_gray"
+            android:gravity="start"
+            android:hint="@string/password"
+            android:paddingStart="10dp"
+            android:inputType="textPassword"
+            android:paddingVertical="10dp"
+            android:layout_marginTop="4dp"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/btnRegister"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/StyleButtonApp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginTop="54dp"
+        android:backgroundTint="@color/color_primary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnSave"
+            style="@style/TextStyleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/plus_jakarta_sans_regular"
+            android:textSize="16sp"
+            android:lines="1"
+            android:text="@string/register" />
+
+    </LinearLayout>
+
+</LinearLayout>

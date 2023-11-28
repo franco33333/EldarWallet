@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.start.LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eldar_srl_logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="44dp"/>
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/StyleButtonApp"
+        android:layout_marginHorizontal="@dimen/margin_app"
+        android:backgroundTint="@color/edit_text"
+        android:hint="@string/user_name"
+        android:maxLength="10"
+        android:textColorHint="@color/white"
+        android:gravity="center_vertical"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/StyleButtonApp"
+        android:layout_marginHorizontal="@dimen/margin_app"
+        android:backgroundTint="@color/edit_text"
+        android:hint="@string/password"
+        android:maxLength="10"
+        android:textColorHint="@color/white"
+        android:gravity="center_vertical"
+        android:inputType="textPassword"
+        android:paddingHorizontal="12dp"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/margin_app"/>
+
+    <LinearLayout
+        android:id="@+id/btnLogin"
+        android:layout_marginHorizontal="@dimen/margin_app"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/StyleButtonApp"
+        android:layout_marginTop="54dp"
+        android:backgroundTint="@color/color_primary"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TextStyleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:textSize="16sp"
+            android:lines="1"
+            android:text="@string/login" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnRegister"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="@dimen/margin_app"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/StyleButtonApp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="@dimen/margin_app"
+        android:backgroundTint="@color/gray_light"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TextStyleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_primary"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:text="@string/register" />
+
+    </LinearLayout>
+
+</LinearLayout>

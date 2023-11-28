@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EldarWallet</string>
+    <string name="user_name">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellido</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="balance">Saldo</string>
+    <string name="associated_cards">Tarjetas asociadas</string>
+    <string name="expires">Vence</string>
+</resources>
