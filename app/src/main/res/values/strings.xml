@@ -20,4 +20,15 @@
     <string name="expiration_date_format">MM/AA</string>
     <string name="security_code">Código de seguridad</string>
     <string name="card_document">Documento del titular</string>
+    <string name="complete">Completar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="incomplete_fields">Campos incompletos</string>
+    <string name="expiration_date_invalid">Fecha de vencimiento inválida o vencida</string>
+    <string name="card_name_invalid">El nombre/apellido del titular no corresponde con tu nombre/apellido</string>
+    <string name="card_added">Tarjeta agregada correctamente</string>
+    <string name="please_complete_fields">Porfavor complete todos los campos</string>
+    <string name="please_fix_expiration_date">Porfavor revise la fecha de vencimiento</string>
+    <string name="please_fix_card_name">Porfavor revise el nombre ingresado</string>
+    <string name="user_created">Usuario creado correctamente</string>
+    <string name="ok">Ok</string>
 </resources>
