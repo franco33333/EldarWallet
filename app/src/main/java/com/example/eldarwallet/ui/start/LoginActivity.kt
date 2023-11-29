@@ -1,8 +1,10 @@
 package com.example.eldarwallet.ui.start
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.eldarwallet.databinding.ActivityLoginBinding
+import com.example.eldarwallet.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -11,5 +13,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 }

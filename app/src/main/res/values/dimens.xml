@@ -21,4 +21,6 @@
     <dimen name="height_small_button">40dp</dimen>
     <dimen name="height_button">48dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="height_swipe">80dp</dimen>
 </resources>
