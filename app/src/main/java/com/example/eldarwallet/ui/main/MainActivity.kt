@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.eldarwallet.adapter.CardsAdapter
 import com.example.eldarwallet.data.local.AppPreferences
 import com.example.eldarwallet.databinding.ActivityMainBinding
+import com.example.eldarwallet.ui.main.generateQR.GenerateQRActivity
 import com.example.eldarwallet.ui.main.newCard.NewCardActivity
 import java.text.NumberFormat
 import java.util.Locale
@@ -23,7 +24,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, NewCardActivity::class.java))
         }
 
-        binding.btnGenerateQR.setOnClickListener {  }
+        binding.btnGenerateQR.setOnClickListener {
+            startActivity(Intent(this, GenerateQRActivity::class.java))
+        }
 
         binding.btnPayQR.setOnClickListener {
             startActivity(Intent(this, ScanActivity::class.java))

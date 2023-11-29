@@ -25,7 +25,7 @@ class CardsAdapter(private val list: MutableList<Card>, val context: Context): R
 
         fun bind(data: Card) {
             with(binding) {
-                tvCardNumber.text = data.number
+                tvCardNumber.text = "**** ${data.number!!.substring(data.number!!.length-5, data.number!!.length-1)}"
                 tvExpireDate.text = data.expirationDate
                 val cardLogo = getCardLogo(data.number!!)
                 if (cardLogo!=null) {
