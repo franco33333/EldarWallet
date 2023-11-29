@@ -18,7 +18,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btnSave.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             validateFields()
         }
     }

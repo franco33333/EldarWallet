@@ -15,7 +15,14 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(
+                Intent(this, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        }
+
+        binding.btnRegister.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
 }
