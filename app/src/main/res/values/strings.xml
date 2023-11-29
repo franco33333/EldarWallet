@@ -31,4 +31,6 @@
     <string name="please_fix_card_name">Porfavor revise el nombre ingresado</string>
     <string name="user_created">Usuario creado correctamente</string>
     <string name="ok">Ok</string>
+    <string name="invalid_credentials">Credenciales incorrectas</string>
+    <string name="invalid_credentials_description">Ingrese nuevamente las credenciales</string>
 </resources>

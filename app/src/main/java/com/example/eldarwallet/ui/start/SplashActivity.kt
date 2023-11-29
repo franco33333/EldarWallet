@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.eldarwallet.databinding.ActivitySplashBinding
+import com.example.eldarwallet.ui.start.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
