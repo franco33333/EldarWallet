@@ -1,10 +1,12 @@
 package com.example.eldarwallet.ui.main.generateQR
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
 import com.example.eldarwallet.R
 import com.example.eldarwallet.data.local.AppPreferences
 import com.example.eldarwallet.databinding.ActivityGenerateQractivityBinding
@@ -20,7 +22,14 @@ class GenerateQRActivity : AppCompatActivity() {
         ViewModelProvider(this)[GenerateQRViewModel::class.java].apply {
             qrGeneratedLiveData.observe(this@GenerateQRActivity) {
                 binding.progressBar.gone()
-                Glide.with(this@GenerateQRActivity).load(it).into(binding.ivQR)
+                val imageBytes: ByteArray = it.bytes()
+
+                // Decodifica los bytes en un objeto Bitmap
+                val bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+
+                // Muestra el bitmap en un ImageView
+                val imageView: ImageView = binding.ivQR
+                imageView.setImageBitmap(bitmap)
             }
             onError.observe(this@GenerateQRActivity) {
                 binding.progressBar.gone()
