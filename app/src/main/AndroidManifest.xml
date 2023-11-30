@@ -49,7 +49,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.start.SignUpActivity"
+            android:name=".ui.start.signUp.SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

@@ -16,13 +16,6 @@ class LoginViewModel(application: Application): BaseViewModel(application) {
         get() = _loginLiveData
 
     fun login(userName: String, password: String) {
-        /*val userRegistered = AppPreferences.getUser()
-        if(userRegistered != null && userRegistered.userName == userName && userRegistered.password == password) {
-            _loginLiveData.postValue(true)
-            AppPreferences.setUser(userRegistered)
-        } else {
-            _loginLiveData.postValue(false)
-        }*/
         viewModelScope.launch {
             val db = EldarWalletApplication().getDatabase(getApplication())
             val userEntity = db.getItemsDao().getUser(userName, password)?.firstOrNull()

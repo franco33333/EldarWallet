@@ -1,11 +1,10 @@
-package com.example.eldarwallet.ui.start
+package com.example.eldarwallet.ui.start.signUp
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.eldarwallet.R
-import com.example.eldarwallet.data.local.AppPreferences
-import com.example.eldarwallet.data.local.objects.User
 import com.example.eldarwallet.databinding.ActivitySignUpBinding
 import com.example.eldarwallet.ui.main.MainActivity
 import com.example.eldarwallet.utils.GenericDialogFragment
@@ -13,6 +12,27 @@ import com.example.eldarwallet.utils.GenericDialogFragment
 class SignUpActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivitySignUpBinding.inflate(layoutInflater) }
+
+    private val viewModel by lazy {
+        ViewModelProvider(this)[SignUpViewModel::class.java].apply {
+            signUpLiveData.observe(this@SignUpActivity) {
+                val dialog = GenericDialogFragment.createInstance(
+                    title = getString(R.string.app_name),
+                    description = getString(R.string.user_created),
+                    showBtnPositive = true,
+                    showBtnNegative = false,
+                    textBtnPositive = getString(R.string.ok)
+                )
+                dialog.onClickAccept = {
+                    dialog.dismiss()
+                    startActivity(
+                        Intent(this@SignUpActivity, MainActivity::class.java)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
+                }
+                dialog.show(supportFragmentManager, null)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,24 +62,7 @@ class SignUpActivity : AppCompatActivity() {
             }
             dialog.show(supportFragmentManager, null)
         } else {
-            //ALMACENAR DATOS en ROOM
-            AppPreferences.setUser(
-                User(name = name, surname = surname, userName = userName, password = password)
-            )
-            val dialog = GenericDialogFragment.createInstance(
-                title = getString(R.string.app_name),
-                description = getString(R.string.user_created),
-                showBtnPositive = true,
-                showBtnNegative = false,
-                textBtnPositive = getString(R.string.ok)
-            )
-            dialog.onClickAccept = {
-                dialog.dismiss()
-                startActivity(
-                    Intent(this, MainActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
-            }
-            dialog.show(supportFragmentManager, null)
+            viewModel.signUp(name, surname, userName, password)
         }
     }
 }

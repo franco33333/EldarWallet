@@ -13,10 +13,4 @@ data class UserEntity(
     @ColumnInfo(name = "user_name") var userName: String,
     @ColumnInfo(name = "password") var password: String,
     @ColumnInfo(name = "balance") var balance: Long
-) /*{
-    fun toUser(): User {
-        val user = User(name, surname, userName, password)
-        user.balance = balance
-        return user
-    }
-}*/
+)

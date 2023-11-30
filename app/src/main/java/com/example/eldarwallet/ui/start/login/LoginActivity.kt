@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.eldarwallet.R
 import com.example.eldarwallet.databinding.ActivityLoginBinding
 import com.example.eldarwallet.ui.main.MainActivity
-import com.example.eldarwallet.ui.start.SignUpActivity
+import com.example.eldarwallet.ui.start.signUp.SignUpActivity
 import com.example.eldarwallet.utils.GenericDialogFragment
 
 class LoginActivity : AppCompatActivity() {
