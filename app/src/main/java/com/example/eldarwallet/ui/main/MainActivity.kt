@@ -8,6 +8,7 @@ import com.example.eldarwallet.data.local.AppPreferences
 import com.example.eldarwallet.databinding.ActivityMainBinding
 import com.example.eldarwallet.ui.main.generateQR.GenerateQRActivity
 import com.example.eldarwallet.ui.main.newCard.NewCardActivity
+import com.example.eldarwallet.ui.main.scanQR.ScanActivity
 import java.text.NumberFormat
 import java.util.Locale
 

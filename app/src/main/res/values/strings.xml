@@ -33,4 +33,7 @@
     <string name="ok">Ok</string>
     <string name="invalid_credentials">Credenciales incorrectas</string>
     <string name="invalid_credentials_description">Ingrese nuevamente las credenciales</string>
+    <string name="payment_completed">Pago realizado exitosamente</string>
+    <string name="insufficient_balance">Saldo insuficiente</string>
+    <string name="enter_the_amount_again">Ingrese nuevamente el monto a pagar</string>
 </resources>

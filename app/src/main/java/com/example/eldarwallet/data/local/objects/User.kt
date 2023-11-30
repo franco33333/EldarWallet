@@ -17,5 +17,5 @@ data class User(
     @SerializedName("cards")
     var cards: MutableList<Card>? = mutableListOf()
     @SerializedName("balance")
-    var balance: Long? = 100000
+    var balance: Long = 100000
 }

@@ -1,4 +1,4 @@
-package com.example.eldarwallet.ui.main
+package com.example.eldarwallet.ui.main.scanQR
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -54,6 +54,7 @@ class ScanActivity : AppCompatActivity() {
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
                 Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
+                startActivity(ScanResultActivity.newIntent(this, it.text))
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
@@ -74,7 +75,7 @@ class ScanActivity : AppCompatActivity() {
 
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
-            this, arrayOf<String>(Manifest.permission.CAMERA),
+            this, arrayOf(Manifest.permission.CAMERA),
             PERMISSION_REQUEST_CODE
         )
     }
@@ -98,7 +99,7 @@ class ScanActivity : AppCompatActivity() {
                         DialogInterface.OnClickListener { dialog, which ->
                             requestPermission()
                         })*/
-                    //DIALGO FRAGMENT
+                    //DIALOG FRAGMENT
                 }
             }
         }
