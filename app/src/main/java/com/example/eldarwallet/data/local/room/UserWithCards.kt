@@ -16,6 +16,7 @@ data class UserWithCards(
     fun toUser(): User {
         val userToReturn = User(user.name, user.surname, user.userName, user.password)
         userToReturn.balance = user.balance
+        userToReturn.id = user.userId
         val cardList = mutableListOf<Card>()
         cards.forEach { cardList.add(it.toCard()) }
         userToReturn.cards = cardList

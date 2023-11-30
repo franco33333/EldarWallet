@@ -44,4 +44,5 @@
     <string name="insufficient_balance">Saldo insuficiente</string>
     <string name="enter_the_amount_again">Ingrese nuevamente el monto a pagar</string>
     <string name="select_card_to_continue">Seleccione una tarjeta para continuar</string>
+    <string name="welcome">Bienvenido %1$s</string>
 </resources>

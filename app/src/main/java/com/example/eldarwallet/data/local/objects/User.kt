@@ -18,8 +18,6 @@ data class User(
     var cards: MutableList<Card>? = mutableListOf()
     @SerializedName("balance")
     var balance: Long = 100000
-
-    /*fun toUserEntity() : UserEntity {
-        return UserEntity(0, name!!, surname!!, userName!!, password!!, balance)
-    }*/
+    @SerializedName("id")
+    var id: Long? = null
 }

@@ -10,7 +10,7 @@ import androidx.room.Transaction
 interface ApplicationDao {
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(userEntity: UserEntity)
+    suspend fun insertUser(userEntity: UserEntity): Long
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)

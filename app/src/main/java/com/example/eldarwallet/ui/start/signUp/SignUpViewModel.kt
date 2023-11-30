@@ -19,10 +19,11 @@ class SignUpViewModel(application: Application): BaseViewModel(application) {
     fun signUp(name: String, surname: String, userName: String, password: String) {
         viewModelScope.launch {
             val db = EldarWalletApplication().getDatabase(getApplication())
-            db.getItemsDao().insertUser(UserEntity(0,
+            val userId = db.getItemsDao().insertUser(UserEntity(0,
                 name, surname, userName, password, 100000))
             val user = User(name, surname, userName, password)
             user.balance = 100000
+            user.id = userId
             AppPreferences.setUser(user)
             _signUpLiveData.postValue(user)
         }
