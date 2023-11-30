@@ -70,6 +70,7 @@ class ScanResultActivity : AppCompatActivity() {
 
         binding.btnPay.setOnClickListener {
             val amount = binding.etAmount.text.toString()
+
             if (amount.replace("[$.,]+".toRegex(), "").trim().toLong() >
                 AppPreferences.getUser()!!.balance
             ) {

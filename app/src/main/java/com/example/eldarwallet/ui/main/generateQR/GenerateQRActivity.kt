@@ -1,10 +1,7 @@
 package com.example.eldarwallet.ui.main.generateQR
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.eldarwallet.R
@@ -22,14 +19,8 @@ class GenerateQRActivity : AppCompatActivity() {
         ViewModelProvider(this)[GenerateQRViewModel::class.java].apply {
             qrGeneratedLiveData.observe(this@GenerateQRActivity) {
                 binding.progressBar.gone()
-                val imageBytes: ByteArray = it.bytes()
 
-                // Decodifica los bytes en un objeto Bitmap
-                val bitmap: Bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-
-                // Muestra el bitmap en un ImageView
-                val imageView: ImageView = binding.ivQR
-                imageView.setImageBitmap(bitmap)
+                binding.ivQR.setImageBitmap(it)
             }
             onError.observe(this@GenerateQRActivity) {
                 binding.progressBar.gone()
@@ -54,6 +45,10 @@ class GenerateQRActivity : AppCompatActivity() {
 
         binding.progressBar.visible()
         val user = AppPreferences.getUser()!!
-        viewModel.generateQR("${user.name} ${user.surname}")
+        if (user.qr == null) {
+            viewModel.generateQR("${user.name} ${user.surname}")
+        } else {
+            binding.ivQR.setImageBitmap(user.qr)
+        }
     }
 }

@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [UserEntity::class, CardEntity::class],
-    version = 1
+    version = 3
 )
 abstract class ItemsDatabase: RoomDatabase() {
     abstract fun getItemsDao(): ApplicationDao

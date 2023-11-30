@@ -124,11 +124,11 @@ class NewCardActivity : AppCompatActivity() {
     }
 
     private fun validateFields() {
-        val cardNumber = binding.etCardNumber.text.toString()
-        val cardName = binding.etCardName.text.toString()
-        val expirationDate = binding.etExpirationDate.text.toString()
-        val securityCode = binding.etSecurityCode.text.toString()
-        val document = binding.etCardDocument.text.toString()
+        val cardNumber = binding.etCardNumber.text.toString().trim()
+        val cardName = binding.etCardName.text.toString().trim()
+        val expirationDate = binding.etExpirationDate.text.toString().trim()
+        val securityCode = binding.etSecurityCode.text.toString().trim()
+        val document = binding.etCardDocument.text.toString().trim()
 
         val user = AppPreferences.getUser()!!
 

@@ -44,10 +44,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun validateFields() {
-        val name = binding.etName.text.toString()
-        val surname = binding.etSurname.text.toString()
-        val userName = binding.etUsername.text.toString()
-        val password = binding.etPassword.text.toString()
+        val name = binding.etName.text.toString().trim()
+        val surname = binding.etSurname.text.toString().trim()
+        val userName = binding.etUsername.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
 
         if (name.isEmpty() || userName.isEmpty() || surname.isEmpty() || password.isEmpty()) {
             val dialog = GenericDialogFragment.createInstance(

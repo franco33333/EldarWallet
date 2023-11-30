@@ -1,10 +1,9 @@
 package com.example.eldarwallet.data.local.objects
 
+import android.graphics.Bitmap
 import com.google.gson.annotations.SerializedName
 
 data class User(
-//    @SerializedName("id")
-//    var id: String? = null,
     @SerializedName("name")
     var name: String? = null,
     @SerializedName("surname")
@@ -20,4 +19,6 @@ data class User(
     var balance: Long = 100000
     @SerializedName("id")
     var id: Long? = null
+    @SerializedName("qr")
+    var qr: Bitmap? = null
 }
