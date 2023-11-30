@@ -18,4 +18,12 @@ data class User(
     var cards: MutableList<Card>? = mutableListOf()
     @SerializedName("balance")
     var balance: Long = 100000
+
+    /*constructor(userWithCards: UserWithCards) : this() {
+        this.name = userWithCards.user.name
+        this.surname = userWithCards.user.surname
+        this.userName = userWithCards.user.userName
+        this.password = userWithCards.user.password
+        this.cards = userWithCards.cards
+    }*/
 }

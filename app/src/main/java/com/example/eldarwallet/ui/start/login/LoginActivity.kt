@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel by lazy {
         ViewModelProvider(this)[LoginViewModel::class.java].apply {
             loginLiveData.observe(this@LoginActivity) {
-                if (it == true) {
+                /*if (it == true) {
                     startActivity(
                         Intent(this@LoginActivity, MainActivity::class.java)
                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -32,7 +32,23 @@ class LoginActivity : AppCompatActivity() {
                         dialog.dismiss()
                     }
                     dialog.show(supportFragmentManager, null)
+                }*/
+                startActivity(
+                    Intent(this@LoginActivity, MainActivity::class.java)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                )
+            }
+            onError.observe(this@LoginActivity) {
+                val dialog = GenericDialogFragment.createInstance(
+                    getString(R.string.invalid_credentials),
+                    getString(R.string.invalid_credentials_description),
+                    showBtnPositive = true,
+                    textBtnPositive = getString(R.string.ok)
+                )
+                dialog.onClickAccept = {
+                    dialog.dismiss()
                 }
+                dialog.show(supportFragmentManager, null)
             }
         }
     }
