@@ -22,7 +22,7 @@
         android:layout_height="40dp"
         style="@style/StyleButtonApp"
         android:layout_marginHorizontal="@dimen/margin_app"
-        android:backgroundTint="@color/edit_text"
+        android:backgroundTint="@color/gray"
         android:hint="@string/user_name"
         android:maxLength="20"
         android:textColorHint="@color/white"
@@ -38,7 +38,7 @@
         android:layout_height="40dp"
         style="@style/StyleButtonApp"
         android:layout_marginHorizontal="@dimen/margin_app"
-        android:backgroundTint="@color/edit_text"
+        android:backgroundTint="@color/gray"
         android:hint="@string/password"
         android:maxLength="20"
         android:textColorHint="@color/white"
@@ -55,7 +55,7 @@
         android:layout_height="50dp"
         style="@style/StyleButtonApp"
         android:layout_marginTop="54dp"
-        android:backgroundTint="@color/color_primary"
+        android:backgroundTint="@color/color_secondary"
         android:orientation="horizontal">
 
         <TextView
