@@ -12,9 +12,8 @@ import com.example.eldarwallet.data.local.AppPreferences
 import com.example.eldarwallet.databinding.ActivityScanResultBinding
 import com.example.eldarwallet.ui.main.MainActivity
 import com.example.eldarwallet.utils.GenericDialogFragment
+import com.example.eldarwallet.utils.formatAsCurrency
 import com.google.gson.Gson
-import java.text.NumberFormat
-import java.util.Locale
 
 
 class ScanResultActivity : AppCompatActivity() {
@@ -85,21 +84,6 @@ class ScanResultActivity : AppCompatActivity() {
             } else {
                 viewModel.pay(amount.replace("[$.,]+".toRegex(), "").trim().toLong())
             }
-        }
-    }
-
-    private fun formatAsCurrency(value: String): String {
-        return try {
-            val amount = value.toDouble()
-
-            val formatCurrency: NumberFormat =
-                NumberFormat.getCurrencyInstance(Locale("es", "AR"))
-            formatCurrency.isGroupingUsed = true
-            formatCurrency.maximumFractionDigits = 0
-
-            formatCurrency.format(amount)
-        } catch (e: Exception) {
-            value
         }
     }
 }

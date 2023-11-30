@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_app"
+    tools:context=".ui.main.payWithCard.PayWithCardActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/pay_with_card"
+        style="@style/TextStyleMedium"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/select_card"
+        style="@style/TextStyleMedium"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_app"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_app"
+        android:backgroundTint="@color/gray_light">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCards"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/margin_app"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_card_selectable"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_app"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/cbu"
+            style="@style/TextStyleMedium"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/etCbu"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_button"
+            android:backgroundTint="@color/gray_light"
+            android:textColorHint="@color/gray"
+            android:gravity="center_vertical|end"
+            tools:text="asdasda adasdasdasdd dfgb"
+            android:textSize="16sp"
+            android:inputType="number"
+            android:maxLength="22"
+            android:paddingHorizontal="@dimen/margin_app"
+            android:layout_marginStart="@dimen/margin_app"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/total_to_pay"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        style="@style/TextStyleRegular"
+        android:textColor="@color/black"
+        android:textSize="22sp"/>
+
+    <EditText
+        android:id="@+id/etAmount"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/StyleButtonApp"
+        android:backgroundTint="@android:color/transparent"
+        android:hint="$ 0"
+        android:textColorHint="@color/gray"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:paddingHorizontal="12dp"
+        android:textSize="30sp"
+        android:inputType="number"
+        android:maxLength="15"
+        android:layout_marginTop="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="@dimen/margin_app"
+        android:backgroundTint="@color/selector_button"
+        app:cornerRadius="10dp"
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        android:enabled="false"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:text="@string/pay" />
+
+</LinearLayout>

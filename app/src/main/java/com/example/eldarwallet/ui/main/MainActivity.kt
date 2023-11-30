@@ -8,6 +8,7 @@ import com.example.eldarwallet.data.local.AppPreferences
 import com.example.eldarwallet.databinding.ActivityMainBinding
 import com.example.eldarwallet.ui.main.generateQR.GenerateQRActivity
 import com.example.eldarwallet.ui.main.newCard.NewCardActivity
+import com.example.eldarwallet.ui.main.payWithCard.PayWithCardActivity
 import com.example.eldarwallet.ui.main.scanQR.ScanActivity
 import java.text.NumberFormat
 import java.util.Locale
@@ -33,7 +34,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ScanActivity::class.java))
         }
 
-        binding.btnPayCard.setOnClickListener {  }
+        binding.btnPayCard.setOnClickListener {
+            startActivity(Intent(this, PayWithCardActivity::class.java))
+        }
 
         val number = user.balance
         val COUNTRY = "AR"

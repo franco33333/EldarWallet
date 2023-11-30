@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Pagar con QR"
+        android:text="@string/pay_with_qr"
         style="@style/TextStyleMedium"
         android:textColor="@color/black"
         android:gravity="center_horizontal"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Destino:"
+        android:text="@string/destiny"
         android:gravity="center_horizontal"
         android:layout_marginTop="30dp"
         style="@style/TextStyleRegular"
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Total a pagar:"
+        android:text="@string/total_to_pay"
         android:gravity="center_horizontal"
         android:layout_marginTop="30dp"
         style="@style/TextStyleRegular"
@@ -80,6 +80,6 @@
         android:enabled="false"
         android:textColor="@color/white"
         android:layout_height="wrap_content"
-        android:text="Pagar" />
+        android:text="@string/pay" />
 
 </LinearLayout>

@@ -2,6 +2,8 @@ package com.example.eldarwallet.utils
 
 import android.view.View
 import com.example.eldarwallet.R
+import java.text.NumberFormat
+import java.util.Locale
 
 fun View.visible() {
     this.visibility = View.VISIBLE
@@ -26,4 +28,19 @@ fun getCardLogo(cardNumber: String): Int? {
         }
     }
     return null
+}
+
+fun formatAsCurrency(value: String): String {
+    return try {
+        val amount = value.toDouble()
+
+        val formatCurrency: NumberFormat =
+            NumberFormat.getCurrencyInstance(Locale("es", "AR"))
+        formatCurrency.isGroupingUsed = true
+        formatCurrency.maximumFractionDigits = 0
+
+        formatCurrency.format(amount)
+    } catch (e: Exception) {
+        value
+    }
 }

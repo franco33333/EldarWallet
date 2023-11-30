@@ -13,7 +13,12 @@
     <string name="add_card">Agregar tarjeta</string>
     <string name="generate_qr">Generar QR</string>
     <string name="pay_with_qr">Pagar con QR</string>
+    <string name="destiny">Destino:</string>
+    <string name="total_to_pay">Total a pagar:</string>
+    <string name="pay">Pagar</string>
     <string name="pay_with_card">Pagar con tarjeta</string>
+    <string name="select_card">Seleccionar tarjeta</string>
+    <string name="cbu">CBU/ALIAS:</string>
     <string name="card_number">Número de tarjeta</string>
     <string name="card_name">Nombre del titular de la tarjeta</string>
     <string name="expiration_date">Vencimiento</string>
@@ -36,4 +41,5 @@
     <string name="payment_completed">Pago realizado exitosamente</string>
     <string name="insufficient_balance">Saldo insuficiente</string>
     <string name="enter_the_amount_again">Ingrese nuevamente el monto a pagar</string>
+    <string name="select_card_to_continue">Seleccione una tarjeta para continuar</string>
 </resources>
