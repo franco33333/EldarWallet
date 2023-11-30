@@ -1,5 +1,6 @@
 package com.example.eldarwallet.ui.main.payWithCard
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -67,7 +68,7 @@ class PayWithCardActivity : AppCompatActivity() {
                 }
                 dialog.show(supportFragmentManager, "")
             } else {
-                startActivity()
+                startActivity(Intent(this, ScanNFCActivity::class.java))
             }
         }
     }

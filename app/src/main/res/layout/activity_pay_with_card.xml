@@ -83,7 +83,6 @@
             android:gravity="center_vertical|end"
             tools:text="asdasda adasdasdasdd dfgb"
             android:textSize="16sp"
-            android:inputType="number"
             android:maxLength="22"
             android:paddingHorizontal="@dimen/margin_app"
             android:layout_marginStart="@dimen/margin_app"
