@@ -47,6 +47,13 @@ class NewCardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.containerToolbar.toolbar.title = getString(R.string.add_card)
+        binding.containerToolbar.toolbar.setNavigationIcon(R.drawable.ic_back)
+        setSupportActionBar(binding.containerToolbar.toolbar)
+        binding.containerToolbar.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.etExpirationDate.addTextChangedListener(object : TextWatcher {
             var isEditing = false
             override fun afterTextChanged(s: Editable?) {

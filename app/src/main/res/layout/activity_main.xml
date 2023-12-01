@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/white"
     tools:context=".ui.main.MainActivity">
     
     <ScrollView
@@ -33,13 +34,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_app"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="10dp"
+                app:strokeColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/margin_app"
-                    android:background="@color/gray">
+                    android:padding="@dimen/margin_app">
 
                     <TextView
                         android:id="@+id/tvTitleBalance"
@@ -47,6 +50,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         style="@style/TextStyleRegular"
+                        android:textColor="@color/black"
                         android:text="@string/balance"/>
 
                     <TextView
@@ -54,6 +58,7 @@
                         style="@style/TextStyleSemiBold"
                         android:layout_marginTop="10dp"
                         android:textSize="24sp"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:text="$ 950.000"
@@ -69,14 +74,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_app"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="10dp"
+                app:strokeColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/cvBalance">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="@dimen/margin_app"
-                    android:paddingStart="@dimen/margin_app"
-                    android:background="@color/gray">
+                    android:paddingVertical="@dimen/margin_app">
 
                     <TextView
                         android:id="@+id/tvTitleCards"
@@ -84,12 +90,15 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         style="@style/TextStyleRegular"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="@dimen/margin_app"
                         android:text="@string/associated_cards"/>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/clContainer"
                         android:layout_width="match_parent"
                         android:layout_marginTop="@dimen/margin_app"
+                        android:layout_marginStart="@dimen/margin_app"
                         app:layout_constraintTop_toBottomOf="@id/tvTitleCards"
                         android:layout_height="wrap_content">
 
@@ -119,10 +128,10 @@
                         android:id="@+id/btnAddCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/color_secondary"
+                        android:backgroundTint="@color/color_primary"
                         app:layout_constraintTop_toBottomOf="@id/clContainer"
-                        app:cornerRadius="@dimen/margin_app"
-                        android:layout_marginEnd="@dimen/margin_app"
+                        app:cornerRadius="10dp"
+                        android:layout_marginHorizontal="44dp"
                         android:layout_marginTop="@dimen/margin_app"
                         android:text="@string/add_card"/>
 
@@ -134,21 +143,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_app"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cvCards">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_app"
-                    android:background="@color/gray">
+                    android:padding="@dimen/margin_app">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnGenerateQR"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/color_secondary"
+                        android:backgroundTint="@color/color_primary"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:cornerRadius="@dimen/margin_app"
+                        app:cornerRadius="10dp"
                         android:layout_marginTop="6dp"
                         android:text="@string/generate_qr"/>
 
@@ -156,9 +168,9 @@
                         android:id="@+id/btnPayQR"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/color_secondary"
+                        android:backgroundTint="@color/color_primary"
                         app:layout_constraintTop_toBottomOf="@id/btnGenerateQR"
-                        app:cornerRadius="@dimen/margin_app"
+                        app:cornerRadius="10dp"
                         android:layout_marginTop="6dp"
                         android:text="@string/pay_with_qr"/>
 
@@ -166,9 +178,9 @@
                         android:id="@+id/btnPayCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/color_secondary"
+                        android:backgroundTint="@color/color_primary"
                         app:layout_constraintTop_toBottomOf="@id/btnPayQR"
-                        app:cornerRadius="@dimen/margin_app"
+                        app:cornerRadius="10dp"
                         android:layout_marginTop="6dp"
                         android:text="@string/pay_with_card"/>
 

@@ -17,8 +17,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin_app"
-            android:background="@color/color_secondary">
+            android:paddingHorizontal="@dimen/margin_app"
+            android:paddingVertical="30dp"
+            android:background="@color/color_primary">
             
             <TextView
                 android:id="@+id/tvCardNumber"

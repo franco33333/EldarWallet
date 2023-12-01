@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="color_primary">#1E40FD</color>
+    <color name="color_primary">#456EFE</color>
     <color name="color_secondary">#7D90F6</color>
     <color name="gray">#989696</color>
     <color name="dark_gray">#4D4D4D</color>
@@ -16,4 +16,7 @@
     <color name="edit_text">#4D4D4D</color>
     <color name="edit_text_title">#CCC8C8</color>
     <color name="background_sheet_color">#E6282828</color>
+    <color name="background_login">#23303B</color>
+
+    <color name="transparent">@android:color/transparent</color>
 </resources>

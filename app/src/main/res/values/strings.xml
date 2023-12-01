@@ -53,6 +53,7 @@
     <string name="enter_the_amount_again">Ingrese nuevamente el monto a pagar</string>
     <string name="select_card_to_continue">Seleccione una tarjeta para continuar</string>
     <string name="welcome">Bienvenido %1$s</string>
+    <string name="create_your_account">Crea tu cuenta</string>
     <string name="there_was_an_error">Ha habido un error</string>
     <string name="try_again_later">Pruebe nuevamente mas tarde</string>
     <string name="title_no_card">Todavía no tenés ninguna tarjeta asociada</string>
