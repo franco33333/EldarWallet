@@ -19,4 +19,8 @@ interface ApplicationDao {
     @Transaction
     @Query("SELECT * FROM UserEntity WHERE user_name == :userName AND password == :password")
     suspend fun getUser(userName: String, password: String): List<UserWithCards>?
+
+    @Transaction
+    @Query("SELECT * FROM UserEntity WHERE user_name == :userName")
+    suspend fun getUserByUsername(userName: String): List<UserWithCards>?
 }

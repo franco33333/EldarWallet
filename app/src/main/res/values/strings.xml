@@ -43,6 +43,7 @@
     <string name="please_fix_card_name">Por favor revise el nombre ingresado</string>
     <string name="please_fix_security_number">Porfavor revise el número de seguridad ingresado</string>
     <string name="user_created">Usuario creado correctamente</string>
+    <string name="username_already_used">Ya existe una cuenta con ese usuario</string>
     <string name="ok">Ok</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>

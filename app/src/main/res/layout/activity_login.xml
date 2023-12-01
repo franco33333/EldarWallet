@@ -33,22 +33,36 @@
         android:textSize="16sp"
         android:layout_marginTop="24dp"/>
 
-    <EditText
-        android:id="@+id/etPassword"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        style="@style/StyleButtonApp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_app"
-        android:backgroundTint="@color/white"
-        android:textColorHint="@color/gray"
-        android:textColor="@color/black"
-        android:hint="@string/password"
-        android:maxLength="20"
-        android:gravity="center_vertical"
-        android:inputType="textPassword"
-        android:paddingHorizontal="12dp"
-        android:textSize="16sp"
-        android:layout_marginTop="@dimen/margin_app"/>
+        app:boxBackgroundColor="@color/white"
+        app:hintEnabled="false"
+        android:layout_marginTop="@dimen/margin_app"
+        app:layout_constraintTop_toBottomOf="@id/etUsername"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/gray">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            style="@style/StyleButtonApp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/white"
+            android:gravity="start"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:paddingVertical="15dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.button.MaterialButton

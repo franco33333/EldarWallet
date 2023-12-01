@@ -192,7 +192,7 @@ class NewCardActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.show(supportFragmentManager, null)
-        } else if (securityCode.length < 3) {
+        } else if (!validateSecurityCode(securityCode, cardNumber)) {
             val dialog = GenericDialogFragment.createInstance(
                 title = getString(R.string.security_code_invalid),
                 description = getString(R.string.please_fix_security_number),
@@ -223,6 +223,26 @@ class NewCardActivity : AppCompatActivity() {
         )
             return false
         return true
+    }
+
+    private fun validateSecurityCode(securityCode: String, cardNumber: String): Boolean {
+        if (securityCode.length < 3)
+            return false
+        return when(cardNumber.first().digitToInt()) {
+            3 -> {
+                securityCode.length == 4
+            }
+
+            4 -> {
+                securityCode.length == 3
+            }
+
+            5 -> {
+                securityCode.length == 3
+            }
+
+            else -> false
+        }
     }
 
     private fun formatAsDate(text: String): String {

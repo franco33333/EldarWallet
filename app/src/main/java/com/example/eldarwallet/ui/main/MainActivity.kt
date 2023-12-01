@@ -84,10 +84,6 @@ class MainActivity : AppCompatActivity() {
         val number = user.balance
         binding.tvBalance.text =
             NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(number)
-    }
-
-    override fun onResume() {
-        super.onResume()
 
         val list = user.cards
         if (!list.isNullOrEmpty()) {

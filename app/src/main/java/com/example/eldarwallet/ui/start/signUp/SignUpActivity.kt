@@ -31,6 +31,19 @@ class SignUpActivity : AppCompatActivity() {
                 }
                 dialog.show(supportFragmentManager, null)
             }
+            onError.observe(this@SignUpActivity) {
+                val dialog = GenericDialogFragment.createInstance(
+                    title = getString(R.string.app_name),
+                    description = getString(R.string.username_already_used),
+                    showBtnPositive = true,
+                    showBtnNegative = false,
+                    textBtnPositive = getString(R.string.ok)
+                )
+                dialog.onClickAccept = {
+                    dialog.dismiss()
+                }
+                dialog.show(supportFragmentManager, null)
+            }
         }
     }
 
