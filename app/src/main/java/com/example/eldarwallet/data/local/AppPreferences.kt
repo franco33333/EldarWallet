@@ -19,11 +19,4 @@ object AppPreferences {
     }
 
     fun setUser(user: User?) = getPreferences().edit()?.putString(USER, Gson().toJson(user))?.apply()
-
-    fun removeUser(context: Context) {
-        context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
-            .edit()
-            .remove(USER)
-            .apply()
-    }
 }

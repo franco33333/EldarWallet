@@ -50,6 +50,7 @@
     <string name="invalid_credentials_description">Ingrese nuevamente las credenciales</string>
     <string name="payment_completed">Pago realizado exitosamente</string>
     <string name="insufficient_balance">Saldo insuficiente</string>
+    <string name="wrong_amount">El monto ingresado debe ser mayor a $0</string>
     <string name="enter_the_amount_again">Ingrese nuevamente el monto a pagar</string>
     <string name="select_card_to_continue">Seleccione una tarjeta para continuar</string>
     <string name="welcome">Bienvenido %1$s</string>
@@ -58,4 +59,6 @@
     <string name="try_again_later">Pruebe nuevamente mas tarde</string>
     <string name="title_no_card">Todavía no tenés ninguna tarjeta asociada</string>
     <string name="subtitle_no_card">Deseas agregar una tarjeta?</string>
+    <string name="no_camera_permission">La app no tiene permisos para abrir la cámara</string>
+    <string name="enable_camera_permission">Error decrypting card data</string>
 </resources>

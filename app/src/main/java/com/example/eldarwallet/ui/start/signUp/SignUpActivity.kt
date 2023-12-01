@@ -38,6 +38,13 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.containerToolbar.toolbar.title = ""
+        binding.containerToolbar.toolbar.setNavigationIcon(R.drawable.ic_back)
+        setSupportActionBar(binding.containerToolbar.toolbar)
+        binding.containerToolbar.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.btnRegister.setOnClickListener {
             validateFields()
         }

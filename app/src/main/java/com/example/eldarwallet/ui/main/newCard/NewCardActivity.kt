@@ -65,6 +65,7 @@ class NewCardActivity : AppCompatActivity() {
                 binding.etExpirationDate.setSelection(formattedText.length)
                 isEditing = false
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
@@ -82,10 +83,11 @@ class NewCardActivity : AppCompatActivity() {
                             AppCompatResources.getDrawable(
                                 this@NewCardActivity,
                                 cardLogo
-                                )).into(binding.ivCardLogo)
+                            )
+                        ).into(binding.ivCardLogo)
                         binding.ivCardLogo.visible()
                     }
-                } else if (s.isEmpty()){
+                } else if (s.isEmpty()) {
                     binding.ivCardLogo.gone()
                 } else {
                     val formattedText = formatAsCardNumber(s.toString())
@@ -94,6 +96,7 @@ class NewCardActivity : AppCompatActivity() {
                 }
                 isEditing = false
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
@@ -111,9 +114,9 @@ class NewCardActivity : AppCompatActivity() {
         if (firstNumber != 3) {
             if (numbersOnly.length >= 5) {
                 formattedText.insert(4, " ")
-                if(numbersOnly.length >= 9) {
+                if (numbersOnly.length >= 9) {
                     formattedText.insert(9, " ")
-                    if(numbersOnly.length >= 13) {
+                    if (numbersOnly.length >= 13) {
                         formattedText.insert(14, " ")
                     }
                 }
@@ -121,7 +124,7 @@ class NewCardActivity : AppCompatActivity() {
         } else {
             if (numbersOnly.length >= 5) {
                 formattedText.insert(4, " ")
-                if(numbersOnly.length >= 11) {
+                if (numbersOnly.length >= 11) {
                     formattedText.insert(11, " ")
                 }
             }
@@ -164,7 +167,8 @@ class NewCardActivity : AppCompatActivity() {
             }
             dialog.show(supportFragmentManager, null)
         } else if (!cardName.contains(user.name!!, true) ||
-            !cardName.contains(user.surname!!, true)) {
+            !cardName.contains(user.surname!!, true)
+        ) {
             val dialog = GenericDialogFragment.createInstance(
                 title = getString(R.string.card_name_invalid),
                 description = getString(R.string.please_fix_card_name),
@@ -188,7 +192,7 @@ class NewCardActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.show(supportFragmentManager, null)
-        } else if (securityCode.length<3) {
+        } else if (securityCode.length < 3) {
             val dialog = GenericDialogFragment.createInstance(
                 title = getString(R.string.security_code_invalid),
                 description = getString(R.string.please_fix_security_number),
@@ -206,7 +210,7 @@ class NewCardActivity : AppCompatActivity() {
     }
 
     private fun isExpirationDateValid(expirationDate: String): Boolean {
-        if (expirationDate.length!=5)
+        if (expirationDate.length != 5)
             return false
         val month = expirationDate.substring(0..1)
         val year = expirationDate.substring(3..4)
@@ -215,7 +219,8 @@ class NewCardActivity : AppCompatActivity() {
         if (year.toInt() < (Calendar.getInstance().get(Calendar.YEAR) % 100))
             return false
         if (year.toInt() == (Calendar.getInstance().get(Calendar.YEAR) % 100) &&
-            month.toInt() < Calendar.getInstance().get(Calendar.MONTH)+1)
+            month.toInt() < Calendar.getInstance().get(Calendar.MONTH) + 1
+        )
             return false
         return true
     }

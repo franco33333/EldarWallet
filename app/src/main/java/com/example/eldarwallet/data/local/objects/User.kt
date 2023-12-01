@@ -11,14 +11,13 @@ data class User(
     @SerializedName("user_name")
     var userName: String? = null,
     @SerializedName("password")
-    var password: String? = null
-) {
+    var password: String? = null,
     @SerializedName("cards")
-    var cards: MutableList<Card>? = mutableListOf()
+    var cards: MutableList<Card>? = mutableListOf(),
     @SerializedName("balance")
-    var balance: Long = 100000
+    var balance: Long = 100000,
     @SerializedName("id")
-    var id: Long? = null
+    var id: Long? = null,
     @SerializedName("qr")
     var qr: Bitmap? = null
-}
+)

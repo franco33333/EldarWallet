@@ -10,7 +10,7 @@ import com.example.eldarwallet.data.local.objects.User
 import com.example.eldarwallet.utils.BaseViewModel
 import kotlinx.coroutines.launch
 
-class LoginViewModel(application: Application): BaseViewModel(application) {
+class LoginViewModel(application: Application) : BaseViewModel(application) {
     private val _loginLiveData = MutableLiveData<User>()
     val loginLiveData: LiveData<User>
         get() = _loginLiveData

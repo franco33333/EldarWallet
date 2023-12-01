@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        const val COUNTRY = "AR"
+        const val LANGUAGE = "es"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -77,10 +82,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         val number = user.balance
-        val COUNTRY = "AR"
-        val LANGUAGE = "es"
-        val str = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(number)
-        binding.tvBalance.text = str
+        binding.tvBalance.text =
+            NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(number)
     }
 
     override fun onResume() {

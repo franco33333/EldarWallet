@@ -14,7 +14,8 @@ class JellyInterpolator : Interpolator {
                 return 1f
             } else {
                 val upperBound = 1 - BOUNCE_APEX_MOMENT
-                val subinterpolation = (1.5 + (BOUNCE_FACTOR - 1) * 2) * Math.PI * delta.toDouble() / upperBound
+                val subinterpolation =
+                    (1.5 + (BOUNCE_FACTOR - 1) * 2) * Math.PI * delta.toDouble() / upperBound
                 val minifier = Math.pow((upperBound / (upperBound - delta)).toDouble(), 1.0)
                 return (1 + BOUNCE_ADDITION * Math.cos(subinterpolation) / minifier).toFloat()
             }

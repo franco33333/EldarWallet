@@ -16,7 +16,8 @@
             android:id="@+id/clContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin_app"
+            android:paddingHorizontal="@dimen/margin_app"
+            android:paddingVertical="30dp"
             android:background="@color/gray">
 
             <TextView

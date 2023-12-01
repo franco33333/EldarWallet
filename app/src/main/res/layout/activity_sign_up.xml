@@ -8,6 +8,10 @@
     android:orientation="vertical"
     tools:context=".ui.start.signUp.SignUpActivity">
 
+    <include
+        android:id="@+id/containerToolbar"
+        layout="@layout/layout_toolbar"/>
+
     <ImageView
         android:id="@+id/ivLogo"
         app:layout_constraintTop_toTopOf="parent"

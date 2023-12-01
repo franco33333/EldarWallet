@@ -45,7 +45,7 @@ class CardsSelectableAdapter(private val list: MutableList<Card>, val context: C
                     tvCardNumber.setTextColor(root.context.getColor(R.color.white))
                     tvTitleExpireDate.setTextColor(root.context.getColor(R.color.white))
                     tvExpireDate.setTextColor(root.context.getColor(R.color.white))
-                    clContainer.setBackgroundColor(root.context.getColor(R.color.color_secondary))
+                    clContainer.setBackgroundColor(root.context.getColor(R.color.color_primary))
                 } else {
                     tvCardNumber.setTextColor(root.context.getColor(R.color.gray_light))
                     tvTitleExpireDate.setTextColor(root.context.getColor(R.color.gray_light))

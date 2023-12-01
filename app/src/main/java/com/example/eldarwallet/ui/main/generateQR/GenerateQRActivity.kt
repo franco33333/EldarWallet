@@ -31,14 +31,16 @@ class GenerateQRActivity : AppCompatActivity() {
                     textBtnPositive = getString(R.string.ok)
                 )
                 dialog.onClickAccept = {
-                    startActivity(Intent(this@GenerateQRActivity, MainActivity::class.java)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(
+                        Intent(this@GenerateQRActivity, MainActivity::class.java)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     )
                 }
                 dialog.show(supportFragmentManager, "")
             }
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

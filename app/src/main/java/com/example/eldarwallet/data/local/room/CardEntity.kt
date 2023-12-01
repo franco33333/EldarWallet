@@ -15,7 +15,7 @@ data class CardEntity(
     @ColumnInfo(name = "document") var documnet: String,
     var userId: Long
 ) {
-    fun toCard() : Card {
+    fun toCard(): Card {
         return Card(
             number, name, expirationDate, securityCode, documnet
         )

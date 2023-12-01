@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 import kotlin.reflect.KSuspendFunction1
-import kotlin.reflect.KSuspendFunction3
 
 
 object ApiClient {
@@ -55,17 +54,6 @@ object ApiClient {
         flow {
             try {
                 val response = this@callApi.invoke(request)
-                emit(Result.success(response))
-            } catch (e: Exception) {
-                emit(Result.failure(e))
-            }
-        }
-
-    fun <PARM1, PARM2, PARM3, RESPONSE> KSuspendFunction3<PARM1, PARM2, PARM3, RESPONSE>
-            .callApi(parm1: PARM1,parm2: PARM2, parm3: PARM3) =
-        flow {
-            try {
-                val response = this@callApi.invoke(parm1,parm2,parm3)
                 emit(Result.success(response))
             } catch (e: Exception) {
                 emit(Result.failure(e))

@@ -11,7 +11,7 @@ import com.example.eldarwallet.data.local.room.UserEntity
 import com.example.eldarwallet.utils.BaseViewModel
 import kotlinx.coroutines.launch
 
-class SignUpViewModel(application: Application): BaseViewModel(application) {
+class SignUpViewModel(application: Application) : BaseViewModel(application) {
     private val _signUpLiveData = MutableLiveData<User>()
     val signUpLiveData: LiveData<User>
         get() = _signUpLiveData
@@ -19,8 +19,12 @@ class SignUpViewModel(application: Application): BaseViewModel(application) {
     fun signUp(name: String, surname: String, userName: String, password: String) {
         viewModelScope.launch {
             val db = EldarWalletApplication().getDatabase(getApplication())
-            val userId = db.getItemsDao().insertUser(UserEntity(0,
-                name, surname, userName, password, 100000))
+            val userId = db.getItemsDao().insertUser(
+                UserEntity(
+                    0,
+                    name, surname, userName, password, 100000
+                )
+            )
             val user = User(name, surname, userName, password)
             user.balance = 100000
             user.id = userId

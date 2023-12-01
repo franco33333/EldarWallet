@@ -10,7 +10,7 @@ import com.example.eldarwallet.data.local.room.UserEntity
 import com.example.eldarwallet.utils.BaseViewModel
 import kotlinx.coroutines.launch
 
-class ScanViewModel(application: Application): BaseViewModel(application) {
+class ScanViewModel(application: Application) : BaseViewModel(application) {
     private val _payGeneratedLiveData = MutableLiveData<Unit>()
     val payGeneratedLiveData: LiveData<Unit>
         get() = _payGeneratedLiveData
@@ -23,7 +23,7 @@ class ScanViewModel(application: Application): BaseViewModel(application) {
             db.getItemsDao().insertUser(
                 UserEntity(
                     user.id!!, user.name!!, user.surname!!, user.userName!!,
-                    user.password!!, user.balance-amount
+                    user.password!!, user.balance - amount
                 )
             )
 

@@ -17,8 +17,10 @@ class LoginActivity : AppCompatActivity() {
         ViewModelProvider(this)[LoginViewModel::class.java].apply {
             loginLiveData.observe(this@LoginActivity) {
                 startActivity(
-                    Intent(this@LoginActivity, MainActivity::class.java)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    Intent(
+                        this@LoginActivity,
+                        MainActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
             }
             onError.observe(this@LoginActivity) {

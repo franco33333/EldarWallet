@@ -16,8 +16,10 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        Handler(Looper.myLooper()!!).postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-        }, 2000)
+        Looper.myLooper()?.let {
+            Handler(it).postDelayed({
+                startActivity(Intent(this, LoginActivity::class.java))
+            }, 2000)
+        }
     }
 }

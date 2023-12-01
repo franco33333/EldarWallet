@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DecodeViewModel(application: Application): BaseViewModel(application) {
+class DecodeViewModel(application: Application) : BaseViewModel(application) {
 
     private val _cardsDecryptedLiveData = MutableLiveData<MutableList<Card>>()
     val cardsDecryptedLiveData: LiveData<MutableList<Card>>
@@ -33,8 +33,10 @@ class DecodeViewModel(application: Application): BaseViewModel(application) {
                     val decryptExpirationDate = AESEncryption.decrypt(it.expirationDate!!)
                     val decryptSecurityCode = AESEncryption.decrypt(it.securityCode!!)
                     val decryptDocument = AESEncryption.decrypt(it.document!!)
-                    val decryptedCard = Card(decryptCardNumber, decryptCardName, decryptExpirationDate,
-                        decryptSecurityCode, decryptDocument)
+                    val decryptedCard = Card(
+                        decryptCardNumber, decryptCardName, decryptExpirationDate,
+                        decryptSecurityCode, decryptDocument
+                    )
                     decryptedCards.add(decryptedCard)
                 }
             }

@@ -12,7 +12,6 @@ data class Card(
     @SerializedName("security_code")
     var securityCode: String? = null,
     @SerializedName("document")
-    var document: String? = null
-) {
+    var document: String? = null,
     var isSelected: Boolean = false
-}
+)

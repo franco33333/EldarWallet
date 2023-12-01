@@ -15,8 +15,10 @@ class ScanNFCActivity : AppCompatActivity() {
 
         binding.btnContinue.setOnClickListener {
             startActivity(
-                Intent(this@ScanNFCActivity, MainActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                Intent(
+                    this@ScanNFCActivity,
+                    MainActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             )
         }
     }

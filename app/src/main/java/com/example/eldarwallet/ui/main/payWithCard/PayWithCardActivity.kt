@@ -36,6 +36,13 @@ class PayWithCardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.containerToolbar.toolbar.title = getString(R.string.pay_with_card)
+        binding.containerToolbar.toolbar.setNavigationIcon(R.drawable.ic_back)
+        setSupportActionBar(binding.containerToolbar.toolbar)
+        binding.containerToolbar.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.etAmount.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val text = s.toString().replace("[$.,]+".toRegex(), "").trim()
@@ -49,6 +56,7 @@ class PayWithCardActivity : AppCompatActivity() {
                     binding.etAmount.setSelection(amountFormatted.length)
                 binding.etAmount.addTextChangedListener(this)
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })

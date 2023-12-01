@@ -46,8 +46,7 @@ class GenericDialogFragment : DialogFragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         animateEntrance(binding.mContainer)
         return binding.root
@@ -90,12 +89,8 @@ class GenericDialogFragment : DialogFragment() {
                 container.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 container.translationY = container.height.toFloat()
                 container.alpha = 0f
-                container.animate()
-                    .translationY(0f)
-                    .alpha(1f)
-                    .setInterpolator(JellyInterpolator())
-                    .setDuration(500)
-                    .start()
+                container.animate().translationY(0f).alpha(1f).setInterpolator(JellyInterpolator())
+                    .setDuration(500).start()
             }
         })
     }

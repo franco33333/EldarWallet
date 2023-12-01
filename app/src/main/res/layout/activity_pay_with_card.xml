@@ -5,45 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/margin_app"
     tools:context=".ui.main.payWithCard.PayWithCardActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/pay_with_card"
-        style="@style/TextStyleMedium"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        android:textSize="24sp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/select_card"
-        style="@style/TextStyleMedium"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="@dimen/margin_app"
-        android:textSize="20sp"/>
+    <include
+        android:id="@+id/containerToolbar"
+        layout="@layout/layout_toolbar"/>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_app"
-        android:backgroundTint="@color/gray_light">
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="10dp"
+        android:layout_marginHorizontal="@dimen/margin_app"
+        app:strokeColor="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tvContainerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/select_card"
+                style="@style/TextStyleMedium"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_app"
+                android:textSize="20sp"/>
+
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvContainerTitle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:visibility="gone"
                 tools:visibility="visible"/>
@@ -52,7 +49,7 @@
                 android:id="@+id/rvCards"
                 android:layout_width="match_parent"
                 android:layout_height="275dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvContainerTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +76,7 @@
             android:text="@string/cbu"
             style="@style/TextStyleMedium"
             android:textColor="@color/black"
+            android:layout_marginStart="@dimen/margin_app"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"/>
 
@@ -90,7 +88,7 @@
             android:backgroundTint="@color/gray_light"
             android:textColorHint="@color/gray"
             android:gravity="center_vertical|end"
-            tools:text="asdasda adasdasdasdd dfgb"
+            android:layout_marginEnd="@dimen/margin_app"
             android:textSize="16sp"
             android:maxLength="22"
             android:paddingHorizontal="@dimen/margin_app"
@@ -117,6 +115,7 @@
         style="@style/StyleButtonApp"
         android:backgroundTint="@android:color/transparent"
         android:hint="$ 0"
+        android:layout_marginHorizontal="@dimen/margin_app"
         android:textColorHint="@color/gray"
         android:gravity="center"
         android:textColor="@color/black"
@@ -135,6 +134,7 @@
         app:cornerRadius="10dp"
         android:textAllCaps="false"
         android:textSize="14dp"
+        android:layout_margin="@dimen/margin_app"
         android:enabled="false"
         android:textColor="@color/white"
         android:layout_height="wrap_content"
