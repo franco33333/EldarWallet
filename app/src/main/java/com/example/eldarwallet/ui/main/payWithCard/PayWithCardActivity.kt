@@ -5,16 +5,27 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.eldarwallet.R
 import com.example.eldarwallet.adapter.CardsSelectableAdapter
 import com.example.eldarwallet.data.local.AppPreferences
 import com.example.eldarwallet.databinding.ActivityPayWithCardBinding
+import com.example.eldarwallet.ui.main.DecodeViewModel
 import com.example.eldarwallet.utils.GenericDialogFragment
 import com.example.eldarwallet.utils.formatAsCurrency
 
 class PayWithCardActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityPayWithCardBinding.inflate(layoutInflater) }
+    private val viewModel by lazy {
+        ViewModelProvider(this)[DecodeViewModel::class.java].apply {
+            cardsDecryptedLiveData.observe(this@PayWithCardActivity) {
+                var adapter = CardsSelectableAdapter(it, this@PayWithCardActivity)
+                binding.rvCards.adapter = adapter
+            }
+            onError.observe(this@PayWithCardActivity) {}
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +50,7 @@ class PayWithCardActivity : AppCompatActivity() {
 
         val list = AppPreferences.getUser()!!.cards
         if (!list.isNullOrEmpty()) {
-            var adapter = CardsSelectableAdapter(list, this)
-            binding.rvCards.adapter = adapter
+            viewModel.decryptCardData(list)
         }
 
         binding.btnPay.setOnClickListener {

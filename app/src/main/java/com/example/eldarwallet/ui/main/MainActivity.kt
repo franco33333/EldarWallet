@@ -3,6 +3,7 @@ package com.example.eldarwallet.ui.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.eldarwallet.R
 import com.example.eldarwallet.adapter.CardsAdapter
 import com.example.eldarwallet.data.local.AppPreferences
@@ -18,6 +19,15 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val user by lazy { AppPreferences.getUser()!! }
+    private val viewModel by lazy {
+        ViewModelProvider(this)[DecodeViewModel::class.java].apply {
+            cardsDecryptedLiveData.observe(this@MainActivity) {
+                var adapter = CardsAdapter(it, this@MainActivity)
+                binding.rvCards.adapter = adapter
+            }
+            onError.observe(this@MainActivity) {}
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         val list = user.cards
         if (!list.isNullOrEmpty()) {
-            var adapter = CardsAdapter(list, this)
-            binding.rvCards.adapter = adapter
+            viewModel.decryptCardData(list)
         }
     }
 }

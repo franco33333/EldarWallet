@@ -16,15 +16,15 @@ class EldarWalletApplication: Application() {
     }
 
     fun getDatabase(context: Context): ItemsDatabase {
+
         synchronized(ItemsDatabase::class.java) {
             if (!::databaseInstance.isInitialized) {
-                databaseInstance = Room.databaseBuilder(
+                val builder = Room.databaseBuilder(
                     context.applicationContext,
                     ItemsDatabase::class.java,
                     "application_db"
-                )
-                .fallbackToDestructiveMigration()
-                .build()
+                ).fallbackToDestructiveMigration()
+                databaseInstance = builder.build()
             }
         }
         return databaseInstance
