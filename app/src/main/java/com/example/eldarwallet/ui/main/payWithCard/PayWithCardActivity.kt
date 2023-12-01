@@ -62,6 +62,7 @@ class PayWithCardActivity : AppCompatActivity() {
         })
 
         binding.btnPay.setOnClickListener {
+            val amount = binding.etAmount.text.toString()
             val cardSelected = (binding.rvCards.adapter as CardsSelectableAdapter).getSelectedCard()
             if (cardSelected == null) {
                 val dialog = GenericDialogFragment.createInstance(
@@ -84,6 +85,15 @@ class PayWithCardActivity : AppCompatActivity() {
                 dialog.onClickAccept = {
                     dialog.dismiss()
                 }
+                dialog.show(supportFragmentManager, "")
+            } else if (amount.replace("[$.,]+".toRegex(), "").trim().toLong() == 0L) {
+                val dialog = GenericDialogFragment.createInstance(
+                    getString(R.string.wrong_amount),
+                    getString(R.string.enter_the_amount_again),
+                    showBtnNegative = false,
+                    textBtnPositive = getString(R.string.ok)
+                )
+                dialog.onClickAccept = { dialog.dismiss() }
                 dialog.show(supportFragmentManager, "")
             } else {
                 startActivity(Intent(this, ScanNFCActivity::class.java))
