@@ -18,6 +18,8 @@
     <string name="pay">Pagar</string>
     <string name="continue_">Continuar</string>
     <string name="pay_with_card">Pagar con tarjeta</string>
+    <string name="scan_qr">Escanear QR</string>
+    <string name="show_qr">Mostrá tu QR</string>
     <string name="nfc_instruction">Acerque su tarjeta para realizar el pago a través de NFC</string>
     <string name="select_card">Seleccionar tarjeta</string>
     <string name="cbu">CBU/ALIAS:</string>
@@ -35,13 +37,15 @@
     <string name="card_name_invalid">El nombre/apellido del titular no corresponde con tu nombre/apellido</string>
     <string name="security_code_invalid">El número de seguridad ingresado es inválido</string>
     <string name="card_added">Tarjeta agregada correctamente</string>
-    <string name="please_complete_fields">Porfavor complete todos los campos</string>
-    <string name="please_fix_expiration_date">Porfavor revise la fecha de vencimiento</string>
-    <string name="please_fix_card_number">Porfavor revise el número de tarjeta ingresado</string>
-    <string name="please_fix_card_name">Porfavor revise el nombre ingresado</string>
+    <string name="please_complete_fields">Por favor complete todos los campos</string>
+    <string name="please_fix_expiration_date">Por favor revise la fecha de vencimiento</string>
+    <string name="please_fix_card_number">Por favor revise el número de tarjeta ingresado</string>
+    <string name="please_fix_card_name">Por favor revise el nombre ingresado</string>
     <string name="please_fix_security_number">Porfavor revise el número de seguridad ingresado</string>
     <string name="user_created">Usuario creado correctamente</string>
     <string name="ok">Ok</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
     <string name="invalid_credentials">Credenciales incorrectas</string>
     <string name="invalid_credentials_description">Ingrese nuevamente las credenciales</string>
     <string name="payment_completed">Pago realizado exitosamente</string>
@@ -49,4 +53,8 @@
     <string name="enter_the_amount_again">Ingrese nuevamente el monto a pagar</string>
     <string name="select_card_to_continue">Seleccione una tarjeta para continuar</string>
     <string name="welcome">Bienvenido %1$s</string>
+    <string name="there_was_an_error">Ha habido un error</string>
+    <string name="try_again_later">Pruebe nuevamente mas tarde</string>
+    <string name="title_no_card">Todavía no tenés ninguna tarjeta asociada</string>
+    <string name="subtitle_no_card">Deseas agregar una tarjeta?</string>
 </resources>

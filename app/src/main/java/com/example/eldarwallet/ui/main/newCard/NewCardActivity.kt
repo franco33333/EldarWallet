@@ -156,10 +156,11 @@ class NewCardActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.show(supportFragmentManager, null)
-        } else if (!isExpirationDateValid(expirationDate)) {
+        } else if (!cardName.contains(user.name!!, true) ||
+            !cardName.contains(user.surname!!, true)) {
             val dialog = GenericDialogFragment.createInstance(
-                title = getString(R.string.expiration_date_invalid),
-                description = getString(R.string.please_fix_expiration_date),
+                title = getString(R.string.card_name_invalid),
+                description = getString(R.string.please_fix_card_name),
                 showBtnPositive = true,
                 showBtnNegative = false,
                 textBtnPositive = getString(R.string.ok)
@@ -168,11 +169,10 @@ class NewCardActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.show(supportFragmentManager, null)
-        } else if (!cardName.contains(user.name!!, true) ||
-            !cardName.contains(user.surname!!, true)) {
+        } else if (!isExpirationDateValid(expirationDate)) {
             val dialog = GenericDialogFragment.createInstance(
-                title = getString(R.string.card_name_invalid),
-                description = getString(R.string.please_fix_card_name),
+                title = getString(R.string.expiration_date_invalid),
+                description = getString(R.string.please_fix_expiration_date),
                 showBtnPositive = true,
                 showBtnNegative = false,
                 textBtnPositive = getString(R.string.ok)

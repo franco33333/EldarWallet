@@ -26,7 +26,9 @@ class PayWithCardActivity : AppCompatActivity() {
                 var adapter = CardsSelectableAdapter(it, this@PayWithCardActivity)
                 binding.rvCards.adapter = adapter
             }
-            onError.observe(this@PayWithCardActivity) {}
+            onError.observe(this@PayWithCardActivity) {
+                binding.progressBar.gone()
+            }
         }
     }
 
@@ -79,8 +81,6 @@ class PayWithCardActivity : AppCompatActivity() {
                 startActivity(Intent(this, ScanNFCActivity::class.java))
             }
         }
-
-        binding.progressBar.visible()
     }
 
     override fun onResume() {
@@ -88,6 +88,7 @@ class PayWithCardActivity : AppCompatActivity() {
 
         val list = AppPreferences.getUser()!!.cards
         if (!list.isNullOrEmpty()) {
+            binding.progressBar.visible()
             viewModel.decryptCardData(list)
         }
     }

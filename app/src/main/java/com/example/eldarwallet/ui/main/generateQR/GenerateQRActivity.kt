@@ -19,14 +19,14 @@ class GenerateQRActivity : AppCompatActivity() {
         ViewModelProvider(this)[GenerateQRViewModel::class.java].apply {
             qrGeneratedLiveData.observe(this@GenerateQRActivity) {
                 binding.progressBar.gone()
-
+                binding.tvTitle.visible()
                 binding.ivQR.setImageBitmap(it)
             }
             onError.observe(this@GenerateQRActivity) {
                 binding.progressBar.gone()
                 val dialog = GenericDialogFragment.createInstance(
-                    "Ha habido un error",
-                    "Pruebe nuevamente mas tarde",
+                    getString(R.string.there_was_an_error),
+                    getString(R.string.try_again_later),
                     showBtnNegative = false,
                     textBtnPositive = getString(R.string.ok)
                 )
@@ -48,6 +48,7 @@ class GenerateQRActivity : AppCompatActivity() {
         if (user.qr == null) {
             viewModel.generateQR("${user.name} ${user.surname}")
         } else {
+            binding.tvTitle.visible()
             binding.ivQR.setImageBitmap(user.qr)
         }
     }

@@ -18,7 +18,7 @@ class DecodeViewModel(application: Application): BaseViewModel(application) {
         get() = _cardsDecryptedLiveData
 
     fun decryptCardData(cards: MutableList<Card>) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Default) {
             val decryptedCards = mutableListOf<Card>()
             cards.forEach {
                 if (it.number.isNullOrEmpty() || it.name.isNullOrEmpty() || it.expirationDate.isNullOrEmpty() ||

@@ -1,9 +1,9 @@
 package com.example.eldarwallet.ui.main.scanQR
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -12,7 +12,10 @@ import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.example.eldarwallet.R
 import com.example.eldarwallet.databinding.ActivityScanBinding
+import com.example.eldarwallet.ui.main.MainActivity
+import com.example.eldarwallet.utils.GenericDialogFragment
 import com.google.zxing.BarcodeFormat
 
 
@@ -31,7 +34,8 @@ class ScanActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (checkPermission()) {
-            setupScanner()
+            if (!::codeScanner.isInitialized)
+                setupScanner()
         } else {
             requestPermission();
         }
@@ -53,14 +57,23 @@ class ScanActivity : AppCompatActivity() {
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
                 startActivity(ScanResultActivity.newIntent(this, it.text))
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
             runOnUiThread {
-                Toast.makeText(this, "Camera initialization error: ${it.message}",
-                    Toast.LENGTH_LONG).show()
+                val dialog = GenericDialogFragment.createInstance(
+                    "La app no tiene permisos para abrir la cámara",
+                    "Habilite los permisos de cámara de la app y pruebe nuevamente",
+                    showBtnPositive = false,
+                    textBtnPositive = getString(R.string.ok)
+                )
+                dialog.onClickAccept = {
+                    startActivity(Intent(this, MainActivity::class.java)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    )
+                }
+                dialog.show(supportFragmentManager, "")
             }
         }
 
@@ -88,29 +101,26 @@ class ScanActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             PERMISSION_REQUEST_CODE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(applicationContext, "Permission Granted", Toast.LENGTH_SHORT).show()
-                setupScanner()
+                if (!::codeScanner.isInitialized)
+                    setupScanner()
             } else {
-                Toast.makeText(applicationContext, "Permission Denied", Toast.LENGTH_SHORT).show()
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                     != PackageManager.PERMISSION_GRANTED
                 ) {
-                    /*showMessageOKCancel("You need to allow access permissions",
-                        DialogInterface.OnClickListener { dialog, which ->
-                            requestPermission()
-                        })*/
-                    //DIALOG FRAGMENT
+
                 }
             }
         }
     }
     override fun onResume() {
         super.onResume()
-        codeScanner.startPreview()
+        if (::codeScanner.isInitialized)
+            codeScanner.startPreview()
     }
 
     override fun onPause() {
-        codeScanner.releaseResources()
+        if (::codeScanner.isInitialized)
+            codeScanner.releaseResources()
         super.onPause()
     }
 }

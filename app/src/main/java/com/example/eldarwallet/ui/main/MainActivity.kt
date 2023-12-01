@@ -12,6 +12,7 @@ import com.example.eldarwallet.ui.main.generateQR.GenerateQRActivity
 import com.example.eldarwallet.ui.main.newCard.NewCardActivity
 import com.example.eldarwallet.ui.main.payWithCard.PayWithCardActivity
 import com.example.eldarwallet.ui.main.scanQR.ScanActivity
+import com.example.eldarwallet.utils.GenericDialogFragment
 import com.example.eldarwallet.utils.gone
 import com.example.eldarwallet.utils.visible
 import java.text.NumberFormat
@@ -28,7 +29,9 @@ class MainActivity : AppCompatActivity() {
                 var adapter = CardsAdapter(it, this@MainActivity)
                 binding.rvCards.adapter = adapter
             }
-            onError.observe(this@MainActivity) {}
+            onError.observe(this@MainActivity) {
+                binding.progressBar.gone()
+            }
         }
     }
 
@@ -51,7 +54,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnPayCard.setOnClickListener {
-            startActivity(Intent(this, PayWithCardActivity::class.java))
+            if (user.cards.isNullOrEmpty()) {
+                val dialog = GenericDialogFragment.createInstance(
+                    getString(R.string.title_no_card),
+                    getString(R.string.subtitle_no_card),
+                    showBtnPositive = true,
+                    showBtnNegative = true,
+                    textBtnPositive = getString(R.string.yes),
+                    textBtnNegative = getString(R.string.no)
+                )
+                dialog.onClickAccept = {
+                    startActivity(Intent(this@MainActivity, NewCardActivity::class.java))
+                    dialog.dismiss()
+                }
+                dialog.onClickCancel = {
+                    dialog.dismiss()
+                }
+                dialog.show(supportFragmentManager, "")
+            } else {
+                startActivity(Intent(this, PayWithCardActivity::class.java))
+            }
         }
 
         val number = user.balance
@@ -59,8 +81,6 @@ class MainActivity : AppCompatActivity() {
         val LANGUAGE = "es"
         val str = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(number)
         binding.tvBalance.text = str
-
-        binding.progressBar.visible()
     }
 
     override fun onResume() {
@@ -68,6 +88,7 @@ class MainActivity : AppCompatActivity() {
 
         val list = user.cards
         if (!list.isNullOrEmpty()) {
+            binding.progressBar.visible()
             viewModel.decryptCardData(list)
         }
     }
