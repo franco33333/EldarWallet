@@ -39,6 +39,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCards"
                 android:layout_width="match_parent"

@@ -13,6 +13,8 @@ import com.example.eldarwallet.databinding.ActivityPayWithCardBinding
 import com.example.eldarwallet.ui.main.DecodeViewModel
 import com.example.eldarwallet.utils.GenericDialogFragment
 import com.example.eldarwallet.utils.formatAsCurrency
+import com.example.eldarwallet.utils.gone
+import com.example.eldarwallet.utils.visible
 
 class PayWithCardActivity : AppCompatActivity() {
 
@@ -20,6 +22,7 @@ class PayWithCardActivity : AppCompatActivity() {
     private val viewModel by lazy {
         ViewModelProvider(this)[DecodeViewModel::class.java].apply {
             cardsDecryptedLiveData.observe(this@PayWithCardActivity) {
+                binding.progressBar.gone()
                 var adapter = CardsSelectableAdapter(it, this@PayWithCardActivity)
                 binding.rvCards.adapter = adapter
             }
@@ -48,11 +51,6 @@ class PayWithCardActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
-        val list = AppPreferences.getUser()!!.cards
-        if (!list.isNullOrEmpty()) {
-            viewModel.decryptCardData(list)
-        }
-
         binding.btnPay.setOnClickListener {
             val cardSelected = (binding.rvCards.adapter as CardsSelectableAdapter).getSelectedCard()
             if (cardSelected == null) {
@@ -80,6 +78,17 @@ class PayWithCardActivity : AppCompatActivity() {
             } else {
                 startActivity(Intent(this, ScanNFCActivity::class.java))
             }
+        }
+
+        binding.progressBar.visible()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val list = AppPreferences.getUser()!!.cards
+        if (!list.isNullOrEmpty()) {
+            viewModel.decryptCardData(list)
         }
     }
 }

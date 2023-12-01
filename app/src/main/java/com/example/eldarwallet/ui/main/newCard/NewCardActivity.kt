@@ -144,6 +144,18 @@ class NewCardActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.show(supportFragmentManager, null)
+        } else if (!validateCardNumber(cardNumber)) {
+            val dialog = GenericDialogFragment.createInstance(
+                title = getString(R.string.card_number_invalid),
+                description = getString(R.string.please_fix_card_number),
+                showBtnPositive = true,
+                showBtnNegative = false,
+                textBtnPositive = getString(R.string.ok)
+            )
+            dialog.onClickAccept = {
+                dialog.dismiss()
+            }
+            dialog.show(supportFragmentManager, null)
         } else if (!isExpirationDateValid(expirationDate)) {
             val dialog = GenericDialogFragment.createInstance(
                 title = getString(R.string.expiration_date_invalid),
@@ -161,6 +173,18 @@ class NewCardActivity : AppCompatActivity() {
             val dialog = GenericDialogFragment.createInstance(
                 title = getString(R.string.card_name_invalid),
                 description = getString(R.string.please_fix_card_name),
+                showBtnPositive = true,
+                showBtnNegative = false,
+                textBtnPositive = getString(R.string.ok)
+            )
+            dialog.onClickAccept = {
+                dialog.dismiss()
+            }
+            dialog.show(supportFragmentManager, null)
+        } else if (securityCode.length<3) {
+            val dialog = GenericDialogFragment.createInstance(
+                title = getString(R.string.security_code_invalid),
+                description = getString(R.string.please_fix_security_number),
                 showBtnPositive = true,
                 showBtnNegative = false,
                 textBtnPositive = getString(R.string.ok)
@@ -198,5 +222,16 @@ class NewCardActivity : AppCompatActivity() {
         }
 
         return formattedText.toString()
+    }
+
+    private fun validateCardNumber(cardNumber: String): Boolean {
+        val firstNumber = cardNumber.first().digitToInt()
+        if (firstNumber < 3 || firstNumber > 5)
+            return false
+        if (firstNumber == 3) {
+            if (cardNumber.length < 17 || cardNumber.length > 17)
+                return false
+        }
+        return true
     }
 }

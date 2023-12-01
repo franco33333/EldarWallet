@@ -86,23 +86,41 @@
                         style="@style/TextStyleRegular"
                         android:text="@string/associated_cards"/>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvCards"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clContainer"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_app"
                         app:layout_constraintTop_toBottomOf="@id/tvTitleCards"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_card"/>
+                        android:layout_height="wrap_content">
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:visibility="visible"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvCards"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="3"
+                            tools:listitem="@layout/item_card"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/color_secondary"
-                        app:layout_constraintTop_toBottomOf="@id/rvCards"
+                        app:layout_constraintTop_toBottomOf="@id/clContainer"
                         app:cornerRadius="@dimen/margin_app"
                         android:layout_marginEnd="@dimen/margin_app"
                         android:layout_marginTop="@dimen/margin_app"

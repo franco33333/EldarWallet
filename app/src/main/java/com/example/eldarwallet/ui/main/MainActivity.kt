@@ -12,6 +12,8 @@ import com.example.eldarwallet.ui.main.generateQR.GenerateQRActivity
 import com.example.eldarwallet.ui.main.newCard.NewCardActivity
 import com.example.eldarwallet.ui.main.payWithCard.PayWithCardActivity
 import com.example.eldarwallet.ui.main.scanQR.ScanActivity
+import com.example.eldarwallet.utils.gone
+import com.example.eldarwallet.utils.visible
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by lazy {
         ViewModelProvider(this)[DecodeViewModel::class.java].apply {
             cardsDecryptedLiveData.observe(this@MainActivity) {
+                binding.progressBar.gone()
                 var adapter = CardsAdapter(it, this@MainActivity)
                 binding.rvCards.adapter = adapter
             }
@@ -56,6 +59,12 @@ class MainActivity : AppCompatActivity() {
         val LANGUAGE = "es"
         val str = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(number)
         binding.tvBalance.text = str
+
+        binding.progressBar.visible()
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         val list = user.cards
         if (!list.isNullOrEmpty()) {

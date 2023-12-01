@@ -7,7 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.eldarwallet.data.local.objects.Card
 import com.example.eldarwallet.utils.AESEncryption
 import com.example.eldarwallet.utils.BaseViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DecodeViewModel(application: Application): BaseViewModel(application) {
 
@@ -16,13 +18,15 @@ class DecodeViewModel(application: Application): BaseViewModel(application) {
         get() = _cardsDecryptedLiveData
 
     fun decryptCardData(cards: MutableList<Card>) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val decryptedCards = mutableListOf<Card>()
             cards.forEach {
                 if (it.number.isNullOrEmpty() || it.name.isNullOrEmpty() || it.expirationDate.isNullOrEmpty() ||
                     it.securityCode.isNullOrEmpty() || it.document.isNullOrEmpty()
                 ) {
-                    onError.postValue(Throwable("Error decrypting card data"))
+                    withContext(Dispatchers.Main) {
+                        onError.postValue(Throwable("Error decrypting card data"))
+                    }
                 } else {
                     val decryptCardNumber = AESEncryption.decrypt(it.number!!)
                     val decryptCardName = AESEncryption.decrypt(it.name!!)
@@ -34,7 +38,9 @@ class DecodeViewModel(application: Application): BaseViewModel(application) {
                     decryptedCards.add(decryptedCard)
                 }
             }
-            _cardsDecryptedLiveData.postValue(decryptedCards)
+            withContext(Dispatchers.Main) {
+                _cardsDecryptedLiveData.postValue(decryptedCards)
+            }
         }
     }
 }
